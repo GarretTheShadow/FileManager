@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user %}
+    <h2>Hello, {{ user.username }}!</h2>
+    {% else %}
+    <h2>Hello, user!</h2>
+    {% endif %}
+
+    {% for post in posts %}
+    <div>
+        <p><b> {{ post.header.group }} -----------------/ </b></p>
+
+    </div>
+    <div>
+        <p> {{ post.item}} </p>
+        <br>
+        <hr>
+    </div>
+    {% endfor %}
+{% endblock %}
