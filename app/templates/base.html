@@ -3,8 +3,21 @@
         <title> {{ title }} </title>
     </head>
     <body>
-        <div> File Manager: <a href="/index"> Home </a></div>
+        <div>
+            File Manager:
+            <a href="{{ url_for('index') }}"> Home </a>
+            <a href="{{ url_for('login') }}"> Login </a>
+        </div>
         <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in message %}
+            <li> {{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %} {% endblock %}
     </body>
 </html>
