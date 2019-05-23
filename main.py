@@ -5,14 +5,18 @@ import os
 
 def change_directory(new_directory):
     try:
-        os.changedir(new_directory)
+        return os.changedir(new_directory)
     except Exception as er1:
         print("Error! ", er1)
-    return
 
 
 def current_path():
     return os.getcwd()
+
+
+def ls():
+    pwd = current_path()
+    return os.listdir(pwd)
 
 
 def move_up_folder():
@@ -86,7 +90,3 @@ def cut_file(src, dst):
         return
     except Exception as er1:
         print("Error! ", er1)
-
-
-copy_file("file.txt", "file2.txt")
-

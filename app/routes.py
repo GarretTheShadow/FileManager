@@ -1,27 +1,17 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm
+from main import *
 
 
 @app.route('/')
 @app.route('/index')
 def index():
+    cwd = current_path()
     user = {'username': 'root'}
-    listing = [
-        {
-            'header': {'group': 'Folders'},
-            'item': 'New Folder'
-        },
-        {
-            'header': {'group': 'Text Files'},
-            'item': 'My_file.txt'
-        },
-        {
-            'header': {'group': 'Pictures'},
-            'item': 'Photo.jpg'
-        }
-    ]
-    return render_template('index.html', title='File Manager', user=user, posts=listing)
+    listing = ls()
+
+    return render_template('index.html', title='File Manager', user=user, posts=listing, cwd=cwd)
 
 
 @app.route('/login', methods=['GET', 'POST'])

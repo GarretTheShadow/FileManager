@@ -6,16 +6,14 @@
     {% else %}
     <h2>Hello, user!</h2>
     {% endif %}
-
+    <br>
+    <p> Current folder is: {{ cwd }}</p>
+    <br>
+    <hr>
     {% for post in posts %}
     <div>
-        <p><b> {{ post.header.group }} -----------------/ </b></p>
+        <a href="#"> {{ post }} </a>
 
-    </div>
-    <div>
-        <p> {{ post.item}} </p>
-        <br>
-        <hr>
     </div>
     {% endfor %}
 {% endblock %}
