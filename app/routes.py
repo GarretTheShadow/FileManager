@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm
-from main import *
+from main import ls, current_path
 
 
 @app.route('/')
@@ -11,7 +11,7 @@ def index():
     user = {'username': 'root'}
     listing = ls()
 
-    return render_template('index.html', title='File Manager', user=user, posts=listing, cwd=cwd)
+    return render_template('index.html', title='File Manager', user=user, items=listing, cwd=cwd)
 
 
 @app.route('/login', methods=['GET', 'POST'])

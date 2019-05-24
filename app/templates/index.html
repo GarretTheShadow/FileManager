@@ -2,18 +2,33 @@
 
 {% block content %}
     {% if user %}
-    <h2>Hello, {{ user.username }}!</h2>
+
+    <div class="container">
+        <div class="row">
+            <h2> Hello, {{ user.username }} </h2>
+        </div>
+    </div>
+
     {% else %}
-    <h2>Hello, user!</h2>
+    <div class="containter">
+        <div class="row">
+            <h2>Hello, user!</h2>
+        </div>
+    </div>
     {% endif %}
     <br>
-    <p> Current folder is: {{ cwd }}</p>
-    <br>
-    <hr>
-    {% for post in posts %}
-    <div>
-        <a href="#"> {{ post }} </a>
+<div class="container">
+    <div class="row">
+         <p class="text-monospace"> Current folder is: {{ cwd }}
+    </div>
+</div>
 
+    <br>
+    {% for item in items %}
+    <div class="container">
+        <div class="row">
+            <a class="nav-link text-monospace" href="#"> {{ item }} </a>
+        </div>
     </div>
     {% endfor %}
 {% endblock %}
